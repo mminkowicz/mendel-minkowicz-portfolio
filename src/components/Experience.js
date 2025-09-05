@@ -59,37 +59,50 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-black mb-12 text-center">
-          Experience
-        </h2>
+    <section id="experience" className="section-padding bg-gray-50">
+      <div className="container-responsive">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="heading-responsive font-bold text-gray-900 mb-16 text-center">
+            Experience
+          </h2>
 
-        <div className="space-y-8">
-          {experiences.map((experience, index) => (
-            <div key={index} className="border-b border-gray-200 pb-8 last:border-b-0">
-              <div className="mb-4">
-                <h3 className="text-xl font-semibold text-black">
-                  {experience.position}
-                </h3>
-                <p className="text-gray-600 font-medium">
-                  {experience.company} • {experience.duration}
+          <div className="space-y-8">
+            {experiences.map((experience, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 lg:p-8 shadow-sm border border-gray-100 card-hover">
+                <div className="mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                    <h3 className="text-xl lg:text-2xl font-semibold text-gray-900">
+                      {experience.position}
+                    </h3>
+                    <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                      {experience.duration}
+                    </span>
+                  </div>
+                  <p className="text-lg font-medium text-gray-700">
+                    {experience.company}
+                  </p>
+                </div>
+                
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  {experience.description}
                 </p>
+                
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
+                    Key Achievements
+                  </h4>
+                  <ul className="space-y-3">
+                    {experience.achievements.map((achievement, achievementIndex) => (
+                      <li key={achievementIndex} className="flex items-start gap-3 text-gray-700">
+                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              
-              <p className="text-gray-700 mb-4">
-                {experience.description}
-              </p>
-              
-              <ul className="space-y-1">
-                {experience.achievements.map((achievement, achievementIndex) => (
-                  <li key={achievementIndex} className="text-gray-600">
-                    • {achievement}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
